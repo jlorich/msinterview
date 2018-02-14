@@ -10,6 +10,20 @@
                 "${workspaceFolder}/ms.csproj"
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "test",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "test",
+                "${workspaceFolder}/ms.csproj"
+            ],
+            "group": "test",
+            "presentation": {
+              "reveal": "always",
+              "panel": "new"
+          }
         }
     ]
 }
