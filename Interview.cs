@@ -28,14 +28,18 @@ list,        range, size
 7, 8, 10  --  7-10  = 3
 ...
 
+
+
  */
 
+using QuickGraph.Collections;
 
 namespace MS
 {
-    public static class Interview
+    public class SmallestRangeWithHeap
     {
-        public static int[] SmallestRange(List<int[]> input, int n, int k) {
+        // This works but isn't as performant as it could be.
+        public int[] SmallestRange(List<int[]> input, int n, int k) {
             int[] smallest = new int[2];
             int smallestLength = int.MaxValue;
             var list = new List<int>();
@@ -43,7 +47,7 @@ namespace MS
             // Loop once for each item in the list
             for (int j = 0; j < n; j++) {
                 
-                // Loop once for each list building out the "heap"
+                // Loop once for each list building out the list
                 for (int i = 0; i < k; i++) {
 
                     if (j > 0) {
@@ -54,6 +58,42 @@ namespace MS
 
                     var min = list.Min();
                     var max = list.Max();
+
+                    if (min != max && max - min < smallestLength) {
+                        smallestLength = max - min;
+                        smallest = new int[2] { min, max};
+                    }
+                }
+            }
+
+            return smallest;
+        }
+
+        public int[] SmallestRangeUsingHeap(List<int[]> input, int n, int k) {
+            int[] smallest = new int[2];
+            int smallestLength = int.MaxValue;
+            var heap = new BinaryHeap<int, int>();
+            int max = 0;
+
+            // Loop once for each item in the list
+            for (int j = 0; j < n; j++) {
+                
+                // Loop once for each list building out the heap
+                for (int i = 0; i < k; i++) {
+                    if (j > 0) {
+                        var idx = heap.IndexOf(input[i][j-1]);
+                        heap.RemoveAt(idx);
+                    }
+
+                    var val = input[i][j];
+
+                    heap.Add(val, val);
+
+                    if (val > max) {
+                        max = val;
+                    }
+
+                    var min = heap.Minimum().Value;
 
                     if (min != max && max - min < smallestLength) {
                         smallestLength = max - min;
