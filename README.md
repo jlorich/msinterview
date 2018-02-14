@@ -35,3 +35,9 @@ This program is written with .NET Core 2.0 and requires the runtime to be instal
 The `Main()` method of Program.cs will generate a large amout of sorted arrays and test them for performance.
 
 `InterviewTests` Includes a suite of unit tests for validating several cases for both the heap and list based finders.
+
+## Example Run
+
+>Completed list search in 00:00:00.9562019
+
+>Completed heap search in 00:00:00.3586363

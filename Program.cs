@@ -13,7 +13,7 @@ namespace MS
         static void Main(string [] args) {
             var largeCollection = new List<int[]>();
             var n = 50;
-            var k = 5000;
+            var k = 1000;
 
             Random rnd = new Random();
 
