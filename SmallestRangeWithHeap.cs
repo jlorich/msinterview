@@ -38,41 +38,11 @@ namespace MS
 {
     public class SmallestRangeWithHeap
     {
-        // This works but isn't as performant as it could be.
         public int[] SmallestRange(List<int[]> input, int n, int k) {
             int[] smallest = new int[2];
             int smallestLength = int.MaxValue;
-            var list = new List<int>();
+            var heap = new BinaryHeap<int, int>((a, b) => b.CompareTo(a));
             
-            // Loop once for each item in the list
-            for (int j = 0; j < n; j++) {
-                
-                // Loop once for each list building out the list
-                for (int i = 0; i < k; i++) {
-
-                    if (j > 0) {
-                        list.Remove(input[i][j-1]);
-                    }
-
-                    list.Add(input[i][j]);
-
-                    var min = list.Min();
-                    var max = list.Max();
-
-                    if (min != max && max - min < smallestLength) {
-                        smallestLength = max - min;
-                        smallest = new int[2] { min, max};
-                    }
-                }
-            }
-
-            return smallest;
-        }
-
-        public int[] SmallestRangeUsingHeap(List<int[]> input, int n, int k) {
-            int[] smallest = new int[2];
-            int smallestLength = int.MaxValue;
-            var heap = new BinaryHeap<int, int>();
             int max = 0;
 
             // Loop once for each item in the list

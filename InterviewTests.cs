@@ -60,7 +60,7 @@ namespace MS
             };
 
             // Act
-            var result = rangeFinder.SmallestRangeUsingHeap(input, input[0].Length, input.Count);
+            var result = rangeFinder.SmallestRange(input, input[0].Length, input.Count);
             
             // Assert
             Assert.Equal(new int[]{9, 11}, result);
@@ -80,7 +80,7 @@ namespace MS
             };
 
             // Act
-            var result = rangeFinder.SmallestRangeUsingHeap(input, input[0].Length, input.Count);
+            var result = rangeFinder.SmallestRange(input, input[0].Length, input.Count);
             
             // Assert
             Assert.Equal(new int[]{9, 11}, result);
@@ -100,7 +100,7 @@ namespace MS
             };
 
             // Act
-            var result = rangeFinder.SmallestRangeUsingHeap(input, input[0].Length, input.Count);
+            var result = rangeFinder.SmallestRange(input, input[0].Length, input.Count);
             
             // Assert
             Assert.Equal(new int[]{0, 4}, result);
