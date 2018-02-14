@@ -36,11 +36,8 @@ namespace MS
     public static class Interview
     {
         public static int[] SmallestRange(List<int[]> input, int n, int k) {
-            int min = int.MaxValue;
-            int max = 0;
             int[] smallest = new int[2];
             int smallestLength = int.MaxValue;
-
             var list = new List<int>();
             
             // Loop once for each item in the list
@@ -50,15 +47,13 @@ namespace MS
                 for (int i = 0; i < k; i++) {
 
                     if (j > 0) {
-                        var toremove = input[i][j-1];
-                        list.Remove(toremove);
+                        list.Remove(input[i][j-1]);
                     }
-                    var item = input[i][j];
 
-                    list.Add(item);
+                    list.Add(input[i][j]);
 
-                    min = list.Min();
-                    max = list.Max();
+                    var min = list.Min();
+                    var max = list.Max();
 
                     if (min != max && max - min < smallestLength) {
                         smallestLength = max - min;
