@@ -23,10 +23,10 @@ list and 11 from third list.
 ```
 
 ## Solution
-The logic to follow for each step should be as follows:
+The comparison logic to follow for each step should be as follows:
 
 ```
-list,        range, size
+heap,        range, size
 4, 0, 5   --   0-5 = 5,
 7, 0 ,5   --   0-7 = 7,
 7, 8, 5   --   5-8 = 3,
