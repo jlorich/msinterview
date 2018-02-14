@@ -41,9 +41,13 @@ namespace MS
         public int[] SmallestRange(List<int[]> input, int n, int k) {
             int[] smallest = new int[2];
             int smallestLength = int.MaxValue;
-            var heap = new BinaryHeap<int, int>((a, b) => b.CompareTo(a));
-            
+
+            // Keep record of max.  Since the arrays are sorted the numbers we see are 
+            // always rising so it's easy to keep track of the max.
             int max = 0;
+
+            // Create a min heap since so we can quickly find the min
+            var heap = new BinaryHeap<int, int>((a, b) => b.CompareTo(a));
 
             // Loop once for each item in the list
             for (int j = 0; j < n; j++) {
