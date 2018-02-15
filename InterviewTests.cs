@@ -83,7 +83,7 @@ namespace MS
             var result = rangeFinder.SmallestRange(input, input[0].Length, input.Count);
             
             // Assert
-            Assert.Equal(new int[]{9, 11}, result);
+            Assert.Equal(new int[]{14, 15}, result);
         }
 
         // Looks for a correct result among 3 sorted lists with a very small sample size
@@ -103,7 +103,7 @@ namespace MS
             var result = rangeFinder.SmallestRange(input, input[0].Length, input.Count);
             
             // Assert
-            Assert.Equal(new int[]{0, 4}, result);
+            Assert.Equal(new int[]{0, 5}, result);
         }
     }
 }

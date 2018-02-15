@@ -23,15 +23,17 @@ list and 11 from third list.
 ```
 
 ## Solution
+Store the index of the lowest array and always move to the next item in that array.
+
 The comparison logic to follow for each step should be as follows:
 
 ```
 heap,        range, size
-4, 0, 5   --   0-5 = 5,
-7, 0 ,5   --   0-7 = 7,
-7, 8, 5   --   5-8 = 3,
-7, 8, 11  --  7-11 = 4,
-7, 8, 10  --  7-10  = 3
+4, 0, 5    --   0-5 = 5,
+4, 8 ,5    --   4-8 = 4,
+7, 8, 5    --   5-8 = 3,
+7, 8, 11   --  8-11 = 3,
+10, 8, 11  --  8-11 = 3
 ...
 ```
 
@@ -47,4 +49,5 @@ The `Main()` method of Program.cs will generate a large amout of sorted arrays a
 
 >Completed list search in 00:00:00.9562019
 
->Completed heap search in 00:00:00.3586363
+>Completed heap search in 00:00:00.0355794
+
